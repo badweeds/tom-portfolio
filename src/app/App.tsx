@@ -25,13 +25,13 @@ export default function App() {
     {
       role: 'Data Annotator',
       company: 'Remotasks',
-      period: '2022 - 2023',
+      period: 'March 2021 - June 2023',
       description: 'Contributed to AI training through precise data annotation and validation'
     },
     {
       role: 'Computer Technical Support (OJT)',
       company: 'NAVAL ICT Station',
-      period: '2021 - 2022',
+      period: 'January 2020 - February 2020',
       description: 'Provided technical support for hardware troubleshooting and system maintenance'
     }
   ];
