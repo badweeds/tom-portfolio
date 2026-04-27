@@ -19,7 +19,7 @@ export default function App() {
     {
       role: 'General Admin VA / Theft Investigator',
       company: 'Panoptyc, INC.',
-      period: '2023 - Present',
+      period: 'July 2023 - January 2026',
       description: 'Specialized in administrative support and theft investigation processes'
     },
     {
@@ -50,9 +50,9 @@ export default function App() {
       image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
     },
     {
-      title: 'Database Management',
-      description: 'SQL-based projects for data organization and system optimization',
-      tags: ['SQL', 'Database', 'Optimization'],
+      title: 'Capstone (CrossAR) ',
+      description: 'An Augmented Reality Journey Through HCDC’s Legacy',
+      tags: ['Unity', '3D Models', 'Augmented Reality'],
       image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80'
     }
   ];
