@@ -25,13 +25,13 @@ export default function App() {
     {
       role: 'Data Annotator',
       company: 'Remotasks',
-      period: '2022 - 2023',
+      period: 'March 2021 - June 2023',
       description: 'Contributed to AI training through precise data annotation and validation'
     },
     {
       role: 'Computer Technical Support (OJT)',
       company: 'NAVAL ICT Station',
-      period: '2021 - 2022',
+      period: 'January 2020 - February 2020',
       description: 'Provided technical support for hardware troubleshooting and system maintenance'
     }
   ];
@@ -40,13 +40,13 @@ export default function App() {
     {
       title: 'EMC-AFP System',
       description: 'A comprehensive system built for the Armed Forces of the Philippines using modern web technologies',
-      tags: ['Laravel', 'Vite', 'GitHub', 'PHP'],
+      tags: ['Laravel', 'Vite', 'GitHub', 'PHP', 'Motion', 'React'],
       image: '/emc-afp.png'
     },
     {
       title: "Aaliyah's Billing Management System",
       description: 'A dedicated billing management platform designed for accurate tracking, invoicing, and financial record keeping.',
-      tags: ['SQL', 'Database Management', 'System Architecture'],
+      tags: ['SQL', 'Database Management', 'PHP', 'GitHub'],
       image: '/aaliyah.png'
     },
     {
@@ -338,7 +338,7 @@ export default function App() {
                   <img src="/SQL_Udemy.png" alt="SQL Udemy Certificate" className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
                 </div>
                 <div className="p-5 border-t border-white/10">
-                  <h3 className="text-lg font-semibold text-white mb-1">SQL Bootcamp</h3>
+                  <h3 className="text-lg font-semibold text-white mb-1">SQL IDMS</h3>
                   <p className="text-cyan-400 text-sm">Udemy Certification</p>
                 </div>
               </motion.div>
@@ -355,7 +355,7 @@ export default function App() {
                   <img src="/SQL-Certificate_GL.png" alt="SQL Great Learning" className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
                 </div>
                 <div className="p-5 border-t border-white/10">
-                  <h3 className="text-lg font-semibold text-white mb-1">SQL Fundamentals</h3>
+                  <h3 className="text-lg font-semibold text-white mb-1">SQL Data Science</h3>
                   <p className="text-cyan-400 text-sm">Great Learning Certification</p>
                 </div>
               </motion.div>
@@ -373,7 +373,7 @@ export default function App() {
                 </div>
                 <div className="p-5 border-t border-white/10">
                   <h3 className="text-lg font-semibold text-white mb-1">SQL Basic</h3>
-                  <p className="text-cyan-400 text-sm">Professional Certificate</p>
+                  <p className="text-cyan-400 text-sm">Simpli|learn Skillup</p>
                 </div>
               </motion.div>
 
