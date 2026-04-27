@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Phone, ExternalLink, Calendar, Award } from 'lucide-react';
+import { Mail, Phone, ExternalLink, Calendar, Award, Github, Linkedin, Facebook, Briefcase, Globe } from 'lucide-react';
 import { Background3D } from './components/Background3D';
 
 export default function App() {
@@ -134,6 +134,30 @@ export default function App() {
 
                 <a href="#contact" className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10 transition-all duration-300">
                   Contact Me
+                </a>
+              </motion.div>
+
+            {/* NEW SOCIAL LINKS */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.9 }}
+                className="flex gap-6 justify-center mt-8"
+              >
+                <a href="https://www.linkedin.com/in/tomrapliza/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#0A66C2] transition-colors" title="LinkedIn">
+                  <Linkedin className="w-6 h-6" />
+                </a>
+                <a href="https://www.upwork.com/freelancers/~0151868f01591bfef0?viewMode=1&s=1110580752008335360" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#14A800] transition-colors" title="Upwork">
+                  <Briefcase className="w-6 h-6" />
+                </a>
+                <a href="https://www.onlinejobs.ph/jobseekers/info/4409661" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors" title="OnlineJobs.ph">
+                  <Globe className="w-6 h-6" />
+                </a>
+                <a href="https://github.com/badweeds" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" title="GitHub">
+                  <Github className="w-6 h-6" />
+                </a>
+                <a href="https://www.facebook.com/haplasonka" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#1877F2] transition-colors" title="Facebook">
+                  <Facebook className="w-6 h-6" />
                 </a>
               </motion.div>
             </motion.div>
