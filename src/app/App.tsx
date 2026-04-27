@@ -41,7 +41,7 @@ export default function App() {
       title: 'EMC-AFP System',
       description: 'A comprehensive system built for the Armed Forces of the Philippines using modern web technologies',
       tags: ['Laravel', 'Vite', 'GitHub', 'PHP'],
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
+      image: '/emc-afp.png'
     },
     {
       title: 'Portfolio Website',
@@ -53,7 +53,7 @@ export default function App() {
       title: 'Capstone (CrossAR) ',
       description: 'An Augmented Reality Journey Through HCDC’s Legacy',
       tags: ['Unity', '3D Models', 'Augmented Reality'],
-      image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=800&q=80'
+      image: '/cross-ar.png'
     }
   ];
 
@@ -111,11 +111,22 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.7 }}
-                className="flex gap-4 justify-center"
+                className="flex gap-4 justify-center flex-wrap"
               >
                 <a href="#projects" className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300">
                   View Projects
                 </a>
+
+                {/* NEW RESUME BUTTON */}
+                <a 
+                  href="/Tom-Rapliza-Resume.pdf.pdf" 
+                  download="Tom-Rapliza-Resume.pdf.pdf" 
+                  className="px-8 py-3 bg-white/10 backdrop-blur-sm border border-cyan-500/50 rounded-lg hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-300 flex items-center gap-2 text-cyan-50"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                  Download Resume
+                </a>
+
                 <a href="#contact" className="px-8 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10 transition-all duration-300">
                   Contact Me
                 </a>
