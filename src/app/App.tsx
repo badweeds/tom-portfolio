@@ -25,13 +25,13 @@ export default function App() {
     {
       role: 'Data Annotator',
       company: 'Remotasks',
-      period: 'March 2021 - June 2023',
+      period: '2022 - 2023',
       description: 'Contributed to AI training through precise data annotation and validation'
     },
     {
       role: 'Computer Technical Support (OJT)',
       company: 'NAVAL ICT Station',
-      period: 'January 2020 - February 2020',
+      period: '2021 - 2022',
       description: 'Provided technical support for hardware troubleshooting and system maintenance'
     }
   ];
@@ -44,10 +44,16 @@ export default function App() {
       image: '/emc-afp.png'
     },
     {
+      title: "Aaliyah's Billing Management System",
+      description: 'A dedicated billing management platform designed for accurate tracking, invoicing, and financial record keeping.',
+      tags: ['SQL', 'Database Management', 'System Architecture'],
+      image: '/aaliyah.png'
+    },
+    {
       title: 'Portfolio Website',
       description: 'Modern portfolio showcasing professional work and technical expertise',
       tags: ['React', 'Tailwind', 'Motion'],
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80'
+      image: '/portf.png'
     },
     {
       title: 'Capstone (CrossAR) ',
@@ -117,7 +123,6 @@ export default function App() {
                   View Projects
                 </a>
 
-                {/* NEW RESUME BUTTON */}
                 <a 
                   href="/Tom-Rapliza-Resume.pdf" 
                   download="Tom-Rapliza-Resume.pdf" 
@@ -283,7 +288,7 @@ export default function App() {
 
         {/* Certificates Section */}
         <section className="py-20 px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -294,11 +299,12 @@ export default function App() {
               Certifications & <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Awards</span>
             </motion.h2>
 
+            {/* Main TESDA Certificate */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 backdrop-blur-sm border border-white/10 rounded-lg p-8"
+              className="bg-gradient-to-br from-blue-900/20 to-purple-900/20 backdrop-blur-sm border border-white/10 rounded-lg p-8 mb-8"
             >
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
@@ -309,13 +315,69 @@ export default function App() {
                     Computer Hardware Servicing NC-II
                   </h3>
                   <p className="text-cyan-400 mb-2">TESDA Certification</p>
-                  <p className="text-gray-400">
+                  <p className="text-gray-400 max-w-2xl">
                     Certified in computer hardware installation, configuration, and troubleshooting.
                     Demonstrates expertise in system maintenance and technical support.
                   </p>
                 </div>
               </div>
             </motion.div>
+
+            {/* SQL Certificates Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* SQL Udemy */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="bg-[#1E1E1E]/50 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden group"
+              >
+                <div className="h-48 overflow-hidden bg-black/50 p-2 flex items-center justify-center">
+                  <img src="/SQL_Udemy.png" alt="SQL Udemy Certificate" className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                </div>
+                <div className="p-5 border-t border-white/10">
+                  <h3 className="text-lg font-semibold text-white mb-1">SQL Bootcamp</h3>
+                  <p className="text-cyan-400 text-sm">Udemy Certification</p>
+                </div>
+              </motion.div>
+
+              {/* SQL Great Learning */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="bg-[#1E1E1E]/50 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden group"
+              >
+                <div className="h-48 overflow-hidden bg-black/50 p-2 flex items-center justify-center">
+                  <img src="/SQL-Certificate_GL.png" alt="SQL Great Learning" className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                </div>
+                <div className="p-5 border-t border-white/10">
+                  <h3 className="text-lg font-semibold text-white mb-1">SQL Fundamentals</h3>
+                  <p className="text-cyan-400 text-sm">Great Learning Certification</p>
+                </div>
+              </motion.div>
+
+              {/* SQL Basic */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="bg-[#1E1E1E]/50 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden group"
+              >
+                <div className="h-48 overflow-hidden bg-black/50 p-2 flex items-center justify-center">
+                  <img src="/SQL-Certificate.png" alt="SQL Basic Certificate" className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                </div>
+                <div className="p-5 border-t border-white/10">
+                  <h3 className="text-lg font-semibold text-white mb-1">SQL Basic</h3>
+                  <p className="text-cyan-400 text-sm">Professional Certificate</p>
+                </div>
+              </motion.div>
+
+            </div>
           </div>
         </section>
 
