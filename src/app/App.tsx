@@ -1,19 +1,8 @@
-import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Phone, ExternalLink, Calendar, Award, Github, Linkedin, Facebook, Briefcase, Globe } from 'lucide-react';
 import { Background3D } from './components/Background3D';
 
 export default function App() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  // NEW: State for functional contact form
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
   const techStack = [
     'Python', 'C++', 'C#', 'CSS', 'Unity', 'Android Studio',
     'Java', 'React Native', 'SQL', 'Laravel'
@@ -66,43 +55,6 @@ export default function App() {
       image: '/cross-ar.png'
     }
   ];
-
-  // NEW: Functional Form Submit Logic
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-    
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/drunza22@gmail.com", {
-        method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            name: formData.name,
-            email: formData.email,
-            message: formData.message,
-            _subject: `New Portfolio Inquiry from ${formData.name}`,
-            _autoresponse: `Hi ${formData.name},\n\nThank you for reaching out! I have received your message and will get back to you as soon as possible.\n\nBest regards,\nTom Rapliza\nIT Professional | Web Developer`,
-            _template: "table"
-        })
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' }); 
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0D0D0D] text-white overflow-x-hidden">
@@ -437,7 +389,7 @@ export default function App() {
                 </div>
               </motion.div>
 
-              {/* NEW: Laravel Certificate 1 */}
+              {/* Laravel Certificate 1 */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -454,7 +406,7 @@ export default function App() {
                 </div>
               </motion.div>
 
-              {/* NEW: Laravel Certificate 2 */}
+              {/* Laravel Certificate 2 */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -524,19 +476,25 @@ export default function App() {
                 </div>
               </motion.div>
 
+              {/* STANDARD HTML FORM - This fixes the error and triggers activation */}
               <motion.form
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                onSubmit={handleSubmit}
+                action="https://formsubmit.co/drunza22@gmail.com"
+                method="POST"
                 className="bg-[#1E1E1E]/50 backdrop-blur-sm border border-white/10 rounded-lg p-6 space-y-4"
               >
+                {/* FormSubmit Configuration */}
+                <input type="hidden" name="_subject" value="New Portfolio Inquiry!" />
+                <input type="hidden" name="_autoresponse" value="Hi there, thank you for reaching out! I have received your message and will get back to you as soon as possible. Best regards, Tom Rapliza" />
+                <input type="hidden" name="_template" value="table" />
+
                 <div>
                   <input
                     type="text"
+                    name="name"
                     placeholder="Your Name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-500/50 transition-colors"
                     required
                   />
@@ -544,48 +502,30 @@ export default function App() {
                 <div>
                   <input
                     type="email"
+                    name="email"
                     placeholder="Your Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-500/50 transition-colors"
                     required
                   />
                 </div>
                 <div>
                   <textarea
+                    name="message"
                     placeholder="Your Message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     rows={4}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:border-cyan-500/50 transition-colors resize-none"
                     required
                   />
                 </div>
                 
-                {/* NEW: Dynamic Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full px-8 py-3 rounded-lg transition-all duration-300 font-semibold ${
-                    isSubmitting 
-                      ? 'bg-gray-600 cursor-not-allowed text-gray-300' 
-                      : submitStatus === 'success'
-                        ? 'bg-green-500 hover:bg-green-600 shadow-lg shadow-green-500/50 text-white'
-                        : submitStatus === 'error'
-                          ? 'bg-red-500 hover:bg-red-600 shadow-lg shadow-red-500/50 text-white'
-                          : 'bg-gradient-to-r from-blue-500 to-cyan-500 hover:shadow-lg hover:shadow-cyan-500/50 text-white'
-                  }`}
+                  className="w-full px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 text-white font-semibold"
                 >
-                  {isSubmitting 
-                    ? 'Sending...' 
-                    : submitStatus === 'success' 
-                      ? 'Message Sent!' 
-                      : submitStatus === 'error' 
-                        ? 'Error. Try Again.' 
-                        : 'Send Message'
-                  }
+                  Send Message
                 </button>
               </motion.form>
+
             </div>
           </div>
         </section>
