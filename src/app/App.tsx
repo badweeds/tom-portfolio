@@ -450,7 +450,7 @@ export default function App() {
                 </div>
                 <div className="p-5 border-t border-white/10">
                   <h3 className="text-lg font-semibold text-white mb-1">Laravel Development</h3>
-                  <p className="text-cyan-400 text-sm">Professional Certification</p>
+                  <p className="text-cyan-400 text-sm">Udemy Certification</p>
                 </div>
               </motion.div>
 
@@ -467,7 +467,7 @@ export default function App() {
                 </div>
                 <div className="p-5 border-t border-white/10">
                   <h3 className="text-lg font-semibold text-white mb-1">Laravel Advanced</h3>
-                  <p className="text-cyan-400 text-sm">Professional Certification</p>
+                  <p className="text-cyan-400 text-sm">Udemy Certification</p>
                 </div>
               </motion.div>
 
