@@ -10,6 +10,10 @@ export default function App() {
     message: ''
   });
 
+  // NEW: State for functional contact form
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const techStack = [
     'Python', 'C++', 'C#', 'CSS', 'Unity', 'Android Studio',
     'Java', 'React Native', 'SQL', 'Laravel'
@@ -63,9 +67,41 @@ export default function App() {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // NEW: Functional Form Submit Logic
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/drunza22@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _subject: `New Portfolio Inquiry from ${formData.name}`,
+            _autoresponse: `Hi ${formData.name},\n\nThank you for reaching out! I have received your message and will get back to you as soon as possible.\n\nBest regards,\nTom Rapliza\nIT Professional | Web Developer`,
+            _template: "table"
+        })
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' }); 
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -137,7 +173,7 @@ export default function App() {
                 </a>
               </motion.div>
 
-            {/* NEW SOCIAL LINKS */}
+              {/* NEW SOCIAL LINKS */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -347,8 +383,8 @@ export default function App() {
               </div>
             </motion.div>
 
-            {/* SQL Certificates Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* SQL & Laravel Certificates Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               
               {/* SQL Udemy */}
               <motion.div
@@ -398,6 +434,40 @@ export default function App() {
                 <div className="p-5 border-t border-white/10">
                   <h3 className="text-lg font-semibold text-white mb-1">SQL Basic</h3>
                   <p className="text-cyan-400 text-sm">Simpli|learn Skillup</p>
+                </div>
+              </motion.div>
+
+              {/* NEW: Laravel Certificate 1 */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="bg-[#1E1E1E]/50 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden group"
+              >
+                <div className="h-48 overflow-hidden bg-black/50 p-2 flex items-center justify-center">
+                  <img src="/Laravel-Certificate.png" alt="Laravel Certificate" className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                </div>
+                <div className="p-5 border-t border-white/10">
+                  <h3 className="text-lg font-semibold text-white mb-1">Laravel Development</h3>
+                  <p className="text-cyan-400 text-sm">Professional Certification</p>
+                </div>
+              </motion.div>
+
+              {/* NEW: Laravel Certificate 2 */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="bg-[#1E1E1E]/50 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden group"
+              >
+                <div className="h-48 overflow-hidden bg-black/50 p-2 flex items-center justify-center">
+                  <img src="/Laravel-Certificate 2.png" alt="Laravel Advanced Certificate" className="w-full h-full object-contain opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+                </div>
+                <div className="p-5 border-t border-white/10">
+                  <h3 className="text-lg font-semibold text-white mb-1">Laravel Advanced</h3>
+                  <p className="text-cyan-400 text-sm">Professional Certification</p>
                 </div>
               </motion.div>
 
@@ -491,11 +561,29 @@ export default function App() {
                     required
                   />
                 </div>
+                
+                {/* NEW: Dynamic Submit Button */}
                 <button
                   type="submit"
-                  className="w-full px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+                  disabled={isSubmitting}
+                  className={`w-full px-8 py-3 rounded-lg transition-all duration-300 font-semibold ${
+                    isSubmitting 
+                      ? 'bg-gray-600 cursor-not-allowed text-gray-300' 
+                      : submitStatus === 'success'
+                        ? 'bg-green-500 hover:bg-green-600 shadow-lg shadow-green-500/50 text-white'
+                        : submitStatus === 'error'
+                          ? 'bg-red-500 hover:bg-red-600 shadow-lg shadow-red-500/50 text-white'
+                          : 'bg-gradient-to-r from-blue-500 to-cyan-500 hover:shadow-lg hover:shadow-cyan-500/50 text-white'
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting 
+                    ? 'Sending...' 
+                    : submitStatus === 'success' 
+                      ? 'Message Sent!' 
+                      : submitStatus === 'error' 
+                        ? 'Error. Try Again.' 
+                        : 'Send Message'
+                  }
                 </button>
               </motion.form>
             </div>
