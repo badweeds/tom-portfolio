@@ -10,6 +10,12 @@ export default function App() {
 
   const experiences = [
     {
+      role: 'IT Support (P.I.O)',
+      company: 'Eastern Mindanao Command (EASTMINCOM)',
+      period: 'March 2026 - May 2026',
+      description: 'Designed and developed secure web solutions for real-time news reporting, dashboard integration, and IT operations.'
+    },
+    {
       role: 'General Admin VA / Theft Investigator',
       company: 'Panoptyc, INC.',
       period: 'July 2023 - January 2026',
